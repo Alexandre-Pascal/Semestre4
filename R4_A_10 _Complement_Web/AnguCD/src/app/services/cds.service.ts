@@ -1,0 +1,29 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CdsService {
+
+  constructor() { }
+
+  getListeCD() {
+    return [
+      {id: 1, title: 'The Dark Side of the Moon', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png', dateDeSortie: new Date('1973-03-01'), quantite: 20, onsale: true},
+      {id: 2, title: 'The Wall', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/The_Wall_Cover.svg/langfr-220px-The_Wall_Cover.svg.png', dateDeSortie: new Date('1979-11-30'), quantite: 10, onsale: true},
+      {id: 3, title: 'Wish You Were Here', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/a/a4/Pink_Floyd%2C_Wish_You_Were_Here_%281975%29.png', dateDeSortie: new Date('1975-09-12'), quantite: 30, onsale: true},
+      {id: 4, title: 'Animals', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/7/74/Pink_Floyd-Animals-Frontal.jpg', dateDeSortie: new Date('1977-01-23'), quantite: 10, onsale: true},
+      {id: 5, title: 'The Division Bell', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/6/6e/Pink_Floyd_-_Division_Bell.jpg', dateDeSortie: new Date('1994-03-28'), quantite: 40, onsale: true},
+      {id: 6, title: 'The Piper at the Gates of Dawn', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/3/3c/PinkFloyd-album-piperatthegatesofdawn_300.jpg', dateDeSortie: new Date('1967-08-06'), quantite: 10, onsale: true},
+      {id: 7, title: 'Meddle', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/d/d4/MeddleCover.jpeg', dateDeSortie: new Date('1971-11-12'), quantite: 15, onsale: true},
+      {id: 8, title: 'Atom Heart Mother', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/2/2e/AtomHeartMotherCover.jpeg', dateDeSortie: new Date('1970-09-10'), quantite: 87, onsale: true},
+      {id: 9, title: 'A Saucerful of Secrets', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/5/54/Saucerful_of_secrets2.jpg', dateDeSortie: new Date('1968-06-29'), quantite: 30, onsale: true},
+      {id: 10, title: 'Ummagumma', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/1/16/PinkFloyd-album-ummagummastudio-300.jpg', dateDeSortie: new Date('1969-11-26'), quantite: 11, onsale: true},
+      {id: 11, title: 'The Final Cut', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/e/e4/FloydFC-Cover01.jpg', dateDeSortie: new Date('1983-02-26'), quantite: 14, onsale: true},
+      {id: 12, title: 'A Momentary Lapse of Reason', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/4/4e/MLoRLP01.jpg', dateDeSortie: new Date('1987-09-28'), quantite: 12, onsale: true},
+      {id: 13, title: 'The Endless River', author: 'Pink Floyd', price: 20, thumbnail: 'https://upload.wikimedia.org/wikipedia/en/b/be/Pink_Floyd_-_The_Endless_River_%28Artwork%29.jpg', dateDeSortie: new Date('2014-11-10'), quantite: 15, onsale: true},
+      
+  
+    ];
+  }
+}

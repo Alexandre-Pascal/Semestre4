@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <p>nom</p>
+        <input type="text" name="nom" id="nom">
+
+        <p>adresse</p>
+        <input type="text" name="adresse" id="adresse">
+
+        <p>email</p>
+        <input type="email" name="email" id="email">
+
+        <p>sujet</p>
+        <input type="text" name="sujet" id="sujet">
+        
+        <br><br><br>
+        
+        <label for="truc">Choix</label>
+        <select name="truc  " id="">
+            <option value="Smart building">Smart building</option>
+            <option value="Energy Management">Energy Management</option>
+            <option value="Ontology">Ontology</option>
+            <option value="Micro Grid">Micro Grid</option>
+            <option value="Other">Other</option>
+        </select>
+
+
+        <p id="random"></p>
+
+        <!-- <p id="truc">Verifier</p> -->
+
+        <input type="text" id="aVerif">
+
+        <input type="button" value="Verifier" onclick="verif()">
+
+        <br><br><br>
+
+        <input type="submit" value="Envoyer">
+
+    </form>
+
+    <script>
+    
+        document.onload = document.getElementById("random").innerHTML = Math.floor(Math.random() * (99999 - 10000) + 10000);
+        
+        function verif(){
+            var aVerif = document.getElementById("aVerif").value;
+            var random = document.getElementById("random").textContent;
+
+            if(aVerif == random){
+                alert("Bravo");
+            }
+            else if(aVerif > random){
+                alert("Trop grand");
+            }
+            else if(aVerif < random){
+                alert("Trop petit");
+            }
+
+        }     
+        
+    </script>
+
+</body>
+</html>

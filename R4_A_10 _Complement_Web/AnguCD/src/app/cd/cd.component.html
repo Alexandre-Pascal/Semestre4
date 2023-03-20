@@ -1,0 +1,14 @@
+<p>cd works!</p>
+
+
+<div class="cd-card">
+    <h3> {{Cd.title|uppercase}}</h3>
+    <p> Sortie le : {{Cd.dateDeSortie|date:"dd/MM/yyyy"}}</p>
+    <p> {{Cd.author}}</p>
+    <p> Prix : {{Cd.price|currency:"EUR"}}</p>
+    <p>
+        En stock :<span [ngStyle]="{color:'rgb(0,'+ (Cd.quantite+50) +',0)'}" > {{Cd.quantite}} </span>
+        <button (click)="onAddCd()">Ajouter 1 unité</button>
+    </p>
+
+    <img [src]="Cd.thumbnail" [alt]="Cd.title">

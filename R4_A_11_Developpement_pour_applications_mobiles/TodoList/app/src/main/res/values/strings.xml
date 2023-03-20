@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="saisie_nouvelleTache">Nouvelle tache</string>
+    <string name="btn_tacheFaite">Tache faite</string>
+</resources>
