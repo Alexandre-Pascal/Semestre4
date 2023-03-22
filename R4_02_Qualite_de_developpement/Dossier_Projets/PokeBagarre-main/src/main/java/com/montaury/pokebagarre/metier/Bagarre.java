@@ -23,7 +23,7 @@ public class Bagarre {
       .thenCombine(webApi.recupererParNom(nomSecondPokemon), Bagarre::determinerVainqueur);
   }
 
-  private void validerNomPokemons(String nomPremierPokemon, String nomSecondPokemon) {
+  public static void validerNomPokemons(String nomPremierPokemon, String nomSecondPokemon) {
     if (estVide(nomPremierPokemon)) {
       throw new ErreurPokemonNonRenseigne("premier");
     }
@@ -35,7 +35,7 @@ public class Bagarre {
     }
   }
 
-  private boolean estVide(String nomPokemon) {
+  private static boolean estVide(String nomPokemon) {
     return nomPokemon == null || nomPokemon.trim().isEmpty();
   }
 
