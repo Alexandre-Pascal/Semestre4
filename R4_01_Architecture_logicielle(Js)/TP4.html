@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
+</head>
+<body>
+    <input id="input" type="text">
+    <input type="button" value="Rechercher" onclick="rechercher()">
+
+    <p id="result"> 
+
+        <ul style="list-style-type: none;">
+            <li id="l1"></li>
+        </ul>
+
+    </p>
+
+    <div id="map"></div>
+
+    <input type="button" value="Viser la France" onclick="viserFrance()">
+
+    <script>
+        function rechercher() {
+        
+            var invertedIndex = [
+            { terme: 'art', uris: ['http://www.example.com/art1', 'http://www.example.com/art2'] },
+            { terme: 'science', uris: ['http://www.example.com/science1']},
+            { terme: 'math', uris: ['http://www.example.com/math1']},
+            { terme: 'music', uris: ['http://www.example.com/music1']},
+            { terme: 'sport', uris: ['http://www.example.com/sport1']},
+            { terme: 'history', uris: ['http://www.example.com/history1']},
+            { terme: 'geography', uris: ['http://www.example.com/geography1']},
+            ]
+
+            var input = document.getElementById('input');
+            var value = input.value;
+            var l1 = document.getElementById('l1');
+            l1.innerHTML = "";
+
+            //chercher le terme correspondant a la valeur dans input
+
+            var term = invertedIndex.find(function (element) {
+                return element.terme === value;
+            });
+
+            //afficher les uris dans le html sous forme de lien
+            for (var i = 0; i < term.uris.length; i++) {
+                var a = document.createElement('a');
+                a.href = term.uris[i];
+                a.innerHTML = term.uris[i];
+                l1.appendChild(a);
+                l1.appendChild(document.createElement('br'));
+                l1.appendChild(a);
+            };
+            
+        }
+
+
+
+
+
+        var map = L.map('map').setView([78.772787, 97.157021], 2);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; '
+        }).addTo(map);
+
+
+        function viserFrance() {
+            map.setView([52.336387, 13.5], 5);
+            
+        }
+        
+        
+    </script>
+</body>
+</html>
+
+<style>
+#map { 
+    height: 500px; 
+    width: 500px;
+    }
+</style>

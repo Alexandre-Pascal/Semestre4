@@ -1,0 +1,24 @@
+.monForm{
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-gap: 10px;
+    margin: 10px;
+    padding: 10px;
+    
+}
+
+.vueForm{
+    text-align: center;
+}
+
+.saisieForm{
+    text-align: center;
+}
+
+.form-group{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin: 10px;
+    padding: 10px;
+}

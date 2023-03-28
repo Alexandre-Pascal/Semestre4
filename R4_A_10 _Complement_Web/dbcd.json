@@ -1,0 +1,5 @@
+{
+"CD":[
+    {"id": 1, "title": "The Dark Side of the Moon", "author": "Pink Floyd", "price": 20, "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png", "dateDeSortie":"1973-03-01", "quantite": 20, "onsale": true}
+    ]    
+}

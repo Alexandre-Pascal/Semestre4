@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  goToCatalogue(){
 
+  constructor(private router: Router) { }
+
+  goToListeCD(){
+    this.router.navigate(['/liste-cd']);
   }
 }
