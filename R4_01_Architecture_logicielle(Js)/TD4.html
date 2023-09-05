@@ -8,21 +8,130 @@
 </head>
 <body>
 
-    <br><br><br><br><br><br>    <br><br><br><br><br><br>
     <br><br><br><br><br><br>
 
+    <input type="button" value="Ouvrir" onclick="deplacer()">
+    
+    <br><br><br>
 
-    <input type="button" value="Deplacer" onclick="deplacer()">
+    <input type="text" id="nbBoutons"> <br>
+    <input type="button" value="affiche" onclick="affiche()">
+
+    <br><br><br>
+
+    <p id="liste"></p>
+    <input type="text" id="aAjouter"> <br>
+    <input type="button" value="Remplir" onclick="remplir()">
+
+    <br><br><br>
+
+    
+    <select name="listeMarquer" id="listeMarquer">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <input type="text" id="aMarquer">
+    <input type="button" value="marquer" onclick="marquer()">
+
+    <br><br><br>
+
+    <select name="listeElements" id="listeElements">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+    <p id="copieListe"></p>
+    <input type="button" value="Copie" onclick="liste2tab()">
+
 
 
     <script>
+        var laListe = [1,2,3];
+        var liste = document.getElementById("liste");
+        liste.innerHTML = "Liste = "+laListe;
 
         function deplacer(){
-            fenetre = open("https://www.google.com/","_blank","width=300,height=300");
+            //ouvre la fenetre fetnetre.html en petit
+            var fenetre = window.open("fenetre.html", "fenetre", "width=200, height=200");
 
-            fenetre.moveBy(500,500);
         }
-        
+
+        function affiche(){
+            var nbBoutons = document.getElementById("nbBoutons").value;
+            for (let i = 0; i < nbBoutons; i++) {
+                document.write("<input type='button' value='Bouton "+i+"'>");
+            }
+        }
+
+        function remplir() {
+            //Modifier la liste pour qu’elle contienne les valeurs saisies dans le champ texte
+            var liste = document.getElementById("liste");
+            var aAjouter = document.getElementById("aAjouter").value;
+            laListe.push(aAjouter);
+            liste.innerHTML = "Liste = "+laListe;
+        }
+
+        function marquer() {
+            //recupere la valeur dans aMarquer
+            var aMarquer = document.getElementById("aMarquer").value;
+            //recupere la liste déroulante
+            var listeMarquer = document.getElementById("listeMarquer");
+            //parcours la liste déroulante
+            for (let i = 0; i < listeMarquer.length; i++) {
+                //si la valeur de la liste déroulante est égale à la valeur saisie dans aMarquer
+                if (listeMarquer[i].value == aMarquer) {
+                    //on change la couleur de la valeur
+                    listeMarquer[i].style.color = "red";
+                }
+                else {
+                    //sinon on la remet en noir
+                    listeMarquer[i].style.color = "black";
+                }
+            }
+        }
+
+        function liste2tab(){
+            // permet de copier les valeurs de la liste déroulante dans un tableau
+            var liste = document.getElementById("listeElements");
+            var copieListe = document.getElementById("copieListe");
+            var tab = [];
+            for (let i = 0; i < liste.length; i++) {
+                tab[i] = liste[i].value;
+                copieListe.innerHTML += tab[i]+" ";   
+            }
+        }
+
+        function reverse(L){
+            var tab = [];
+            for (let i = 0; i < L.length; i++) {
+                tab[i] = L[L.length - i - 1];
+            }
+            return tab;
+        }           
+
+        // alert(reverse([1,2,3,4,5]));
+
+        function append(L,M){
+            //qui permet de rajouter un vecteur M à la fin d’un autre vecteur L
+            for (let i = 0; i < M.length; i++) {
+                L[L.length] = M[i];
+            }
+            return L;
+        }
+
+        // alert(append([1,2,3,4,5],[6,7,8,9,10]));
+
+        function fusion(L,M) {
+            L.sort();
+            M.sort();
+            N = append(L,M);
+            N.sort();
+            return N;
+        }
+        // alert(fusion([1,8,4,5],[4,2,6,3,7]));
+    
     </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 import { Component,  OnInit } from '@angular/core';
 import { CD } from 'src/app/models/cd';
+import { Observable } from 'rxjs';
 import { CdsService } from '../services/cds.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CdsService } from '../services/cds.service';
   styleUrls: ['./liste-cd.component.scss']
 })
 export class ListeCDComponent implements OnInit {
-  listeCD!: CD[];
+  listeCD!: Observable<CD[]>;
 
   constructor(private cdsService: CdsService) { }
 

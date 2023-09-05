@@ -9,6 +9,7 @@ import { ListeCDComponent } from './liste-cd/liste-cd.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NewCDComponent } from './new-cd/new-cd.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NewCDComponent } from './new-cd/new-cd.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],

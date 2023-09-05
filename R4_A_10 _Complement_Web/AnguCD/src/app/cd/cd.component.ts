@@ -24,7 +24,7 @@ export class CdComponent implements OnInit{
       this.unCd = this.Cd;
     }
     else{
-      this.unCd = this.cdsService.getCDById(+idCd);
+      this.cdsService.getCDById(+idCd).subscribe( cd => this.unCd = cd);
     }
 
   }

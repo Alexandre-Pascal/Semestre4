@@ -84,7 +84,28 @@
             
         }
         
-        
+       
+        //Ecrivez une procédure récursive (zip v) permettant de compresser un vecteur en éliminant les doublons. en javascript sans utiliser .filter
+
+        function zip(v){
+            if (v.length == 0) {
+                return [];
+            }
+            else {
+                var premiere = v[0]; //on récupère le premier element du vecteur
+                var reste = v.slice(1); //on récupère le reste du vecteur
+                var resteSansPremier = []; //on crée un vecteur vide
+                for (var i = 0; i < reste.length; i++) { //on parcourt le reste du vecteur
+                    if (reste[i] != premiere) { //si l'element n'est pas le même que le premier
+                        resteSansPremier.push(reste[i]); //on l'ajoute au reste sans le premier
+                    }
+                }
+                return [premiere].concat(zip(resteSansPremier));
+            }
+        }
+
+    alert(zip([1,3,3,5,1,3,2,3]));
+
     </script>
 </body>
 </html>

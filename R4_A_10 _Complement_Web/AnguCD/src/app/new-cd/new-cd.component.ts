@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { CdsService } from '../services/cds.service';
 import { Observable } from 'rxjs';
 import { CD } from '../models/cd';
 import { map } from 'rxjs/operators';
@@ -14,7 +15,7 @@ export class NewCDComponent {
   formulaire!: FormGroup;
   currentCD$!: Observable<CD>;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private cdService: CdsService) { }
 
   ngOnInit(): void {
 
@@ -48,7 +49,17 @@ export class NewCDComponent {
   }
 
   addCD(){
-    console.log(this.formulaire.value);
+    let unNouveauCD: CD = {
+      id: 0,
+      title: this.formulaire.get('title')?.value,
+      author: this.formulaire.get('author')?.value,
+      price: this.formulaire.get('price')?.value,
+      thumbnail: this.formulaire.get('thumbnail')?.value,
+      dateDeSortie: this.formulaire.get('dateDeSortie')?.value,
+      quantite: this.formulaire.get('quantite')?.value,
   }
 
+  this.cdService.newAddCD(unNouveauCD).subscribe();
+  
+  }
 }

@@ -23,13 +23,16 @@
         <br><br><br>
         
         <label for="truc">Choix</label>
-        <select name="truc " id="">
+        <select name="truc " id="truc">
             <option value="Smart building">Smart building</option>
             <option value="Energy Management">Energy Management</option>
             <option value="Ontology">Ontology</option>
             <option value="Micro Grid">Micro Grid</option>
             <option value="Other">Other</option>
         </select>
+
+        <div id="inputOther"></div>
+        <div id="boutonOther"></div>
 
 
         <p id="random"></p>
@@ -52,6 +55,38 @@
     </form>
 
     <script>
+        
+        //teste si l'option sélectionné est "other" en temps réel si oui on affiche un input pour que l'utilisateur puisse écrire son choix
+        var inputOther = document.getElementById("inputOther").innerHTML;
+        document.getElementById("truc").addEventListener("change", function(){
+            if(document.getElementById("truc").value == "Other"){
+                document.getElementById("inputOther").innerHTML = "<input type='text' name='input' id='input'>";
+                document.getElementById("boutonOther").innerHTML = "<input type='button' value='Valider' onclick='valider()'>";
+            }
+        });
+        
+        function valider(){
+            var input = document.getElementById("input").value;
+            //rajoue l'option dans la liste déroulante
+            //si le texte de l'option commence pas par un chiffre
+            if(input.match(/^[0-9]/)){
+                alert("Le texte ne peut pas commencer par un chiffre");
+            }
+            else{
+                document.getElementById("truc").innerHTML += "<option value='"+input+"'>"+input+"</option>";
+            }
+        }
+            
+        
+
+
+        //1.Vérifier que Javascript est activé
+        if(navigator.javaEnabled() == false){
+            // document.location.href="https://google.com"; 
+        }
+
+
+
         var compteur = 0;
 
         document.onload = document.getElementById("random").innerHTML = Math.floor(Math.random() * (99999 - 10000) + 10000);
@@ -59,12 +94,16 @@
 
         // document.getElementById("affichage").innerHTML = navigator.userAgent;
 
-        if(navigator.language != "fr-FR"){
-            document.location.href="https://google.com"; 
-        }
+        
 
-        //si l'utilisateur utilise pas brave chrome on le redirige vers google.com
-        else if(navigator.userAgent != "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" && navigator.userAgent !=  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"){
+        //si l'utilisateur utilise pas google chrome on le redirige vers google.com
+        // if(navigator.userAgent.indexOf("Chrome") == -1){ //fonctionne pas
+        //     document.location.href="https://google.com"; 
+        // }
+        
+        
+
+        if(navigator.language != "fr-FR"){
             document.location.href="https://google.com"; 
         }
 
@@ -107,7 +146,10 @@
             }
 
             else if (adresse == ""){
-                document.getElementById("erreur").innerHTML = "Veuillez remplir le champ adresse";
+                //si le champs contient un @ avec expressions régulières
+                if(adresse.match(/@/)){
+                    document.getElementById("erreur").innerHTML = "Veuillez remplir le champ adresse";
+                }              
             }
 
             else if (email == ""){
@@ -144,7 +186,7 @@
             //     document.getElementById("erreur").innerHTML = "";
             //     alert("Votre message a bien été envoyé");
             
-        
+        //J'en suis a la question 4
         
     </script>
 
